@@ -40,11 +40,11 @@ y_pred = regressor.predict(X_test)
 X = np.append(arr=np.ones((50, 1)).astype(int), values=X, axis=1)
 X_opt = X[:, [0, 1, 2, 3, 4, 5]]
 regressor_OLS = OLS(endog=y, exog=X_opt).fit()
-X_opt = X[:, [0, 1, 3, 4]]
+X_opt = X[:, [0, 1, 2, 3, 4]]
+regressor_OLS = OLS(endog=y, exog=X_opt).fit()
+X_opt = X[:, [0, 1, 2, 3]]
 regressor_OLS = OLS(endog=y, exog=X_opt).fit()
 X_opt = X[:, [0, 1, 3]]
-regressor_OLS = OLS(endog=y, exog=X_opt).fit()
-X_opt = X[:, [0, 1]]
 regressor_OLS = OLS(endog=y, exog=X_opt).fit()
 X_opt = X[:, [0, 1]]
 regressor_OLS = OLS(endog=y, exog=X_opt).fit()

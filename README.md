@@ -1,3 +1,3 @@
 # MachineLearning
 <br/>
- This contains the templates that i used in <a href="https://www.udemy.com/machinelearning/">this</a> course... 
+<i>This Repo contains an army of powerful Machine Learning models that can be combined to solve any problem..</i>

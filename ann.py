@@ -56,6 +56,9 @@ classifier.add(Dense(output_dim=1, init='uniform', activation='sigmoid'))
 # Compiling the ANN
 classifier.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
+# Fitting the ANN to the Training set
+classifier.fit(X_train, y_train, batch_size=10, nb_epoch=100)
+
 # Part 3 - Making the predictions and evaluating the model
 
 # Predicting the Test set results
@@ -66,3 +69,4 @@ y_pred = (y_pred > 0.5)
 from sklearn.metrics import confusion_matrix
 
 cm = confusion_matrix(y_test, y_pred)
+print(cm)

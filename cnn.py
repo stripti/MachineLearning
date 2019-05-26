@@ -1,14 +1,5 @@
 # Convolutional Neural Network
 
-# Installing Theano
-# pip install --upgrade --no-deps git+git://github.com/Theano/Theano.git
-
-# Installing Tensorflow
-# Install Tensorflow from the website: https://www.tensorflow.org/versions/r0.12/get_started/os_setup.html
-
-# Installing Keras
-# pip install --upgrade keras
-
 # Part 1 - Building the CNN
 
 # Importing the Keras libraries and packages
@@ -36,6 +27,7 @@ classifier.add(Convolution2D(32, 3, 3, input_shape=(64, 64, 3), activation='relu
 classifier.add(MaxPooling2D(pool_size=(2, 2)))
 
 # Adding a second convolutional layer
+# we dont need input shape coz here inputs are the pooled feature maps from previous step
 classifier.add(Convolution2D(32, 3, 3, activation='relu'))
 classifier.add(MaxPooling2D(pool_size=(2, 2)))
 
@@ -63,16 +55,18 @@ train_datagen = ImageDataGenerator(rescale=1. / 255,
 
 test_datagen = ImageDataGenerator(rescale=1. / 255)
 
-training_set = train_datagen.flow_from_directory('dataset/training_set',
+# target_size is same as the input shape of images and class mode is binary coz we have 2 categories cats and dogs..
+training_set = train_datagen.flow_from_directory('dataset for cnn/training_set',
                                                  target_size=(64, 64),
                                                  batch_size=32,
                                                  class_mode='binary')
 
-test_set = test_datagen.flow_from_directory('dataset/test_set',
+test_set = test_datagen.flow_from_directory('dataset for cnn/test_set',
                                             target_size=(64, 64),
                                             batch_size=32,
                                             class_mode='binary')
 
+# samples per epoch is no of images in training set and nb_val_samples is no of images in test set
 classifier.fit_generator(training_set,
                          samples_per_epoch=8000,
                          nb_epoch=25,
